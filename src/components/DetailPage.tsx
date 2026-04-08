@@ -146,10 +146,16 @@ const DetailPage: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Probability */}
-              <motion.div 
+              <motion.div
                 variants={cardHover} initial="rest" whileHover="hover"
-                className="bg-white rounded-[1.5rem] p-6 shadow-sm border border-sky-50 flex flex-col justify-center items-center h-full min-h-[200px]"
+                className="burst-btn bg-white rounded-[1.5rem] p-6 shadow-sm border border-sky-50 flex flex-col justify-center items-center h-full min-h-[200px]"
               >
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <span className="text-slate-400 font-bold mb-3 uppercase tracking-wider text-sm">현재 걸릴 확률</span>
                 <div className="text-6xl font-black text-sky-500 drop-shadow-sm flex items-baseline">
                   35<span className="text-3xl text-sky-400 ml-1">%</span>
@@ -159,8 +165,14 @@ const DetailPage: React.FC = () => {
               {/* Chart */}
               <motion.div 
                 variants={cardHover} initial="rest" whileHover="hover"
-                className="bg-white rounded-[1.5rem] p-6 shadow-sm border border-sky-50 lg:col-span-2 relative overflow-hidden"
+                className="burst-btn bg-white rounded-[1.5rem] p-6 shadow-sm border border-sky-50 lg:col-span-2 relative overflow-hidden"
               >
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <h3 className="text-sm font-bold text-slate-400 mb-6 uppercase tracking-wider pl-1">날짜별 확률 추이</h3>
                 <div className="h-48 sm:h-64 w-full">
                   <ResponsiveContainer width="100%" height="100%">
@@ -189,8 +201,14 @@ const DetailPage: React.FC = () => {
                     <motion.div 
                       key={idx} 
                       whileHover={{ scale: 1.03, backgroundColor: "rgb(224,242,254)" }}
-                      className="flex items-center gap-3 bg-sky-50/50 p-4 rounded-2xl border border-sky-100 transition-colors cursor-pointer"
+                      className="burst-btn flex items-center gap-3 bg-sky-50/50 p-4 rounded-2xl border border-sky-100 transition-colors cursor-pointer relative"
                     >
+                      <span className="burst-petal petal-1" />
+                      <span className="burst-petal petal-2" />
+                      <span className="burst-petal petal-3" />
+                      <span className="burst-petal petal-4" />
+                      <span className="burst-petal petal-5" />
+                      <span className="burst-petal petal-6" />
                       <CheckCircle2 className="text-sky-500 shrink-0" size={22} />
                       <span className="font-bold text-slate-700">{action}</span>
                     </motion.div>
@@ -211,8 +229,14 @@ const DetailPage: React.FC = () => {
               {/* Probability */}
               <motion.div 
                 variants={cardHover} initial="rest" whileHover="hover"
-                className="bg-white rounded-[1.5rem] p-6 shadow-sm border border-amber-50 flex flex-col justify-center items-center h-full min-h-[200px]"
+                className="burst-btn bg-white rounded-[1.5rem] p-6 shadow-sm border border-amber-50 flex flex-col justify-center items-center h-full min-h-[200px]"
               >
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <span className="text-slate-400 font-bold mb-3 uppercase tracking-wider text-sm">현재 걸릴 확률</span>
                 <div className="text-6xl font-black text-amber-500 drop-shadow-sm flex items-baseline">
                   55<span className="text-3xl text-amber-400 ml-1">%</span>
@@ -222,8 +246,14 @@ const DetailPage: React.FC = () => {
               {/* Chart */}
               <motion.div 
                 variants={cardHover} initial="rest" whileHover="hover"
-                className="bg-white rounded-[1.5rem] p-6 shadow-sm border border-amber-50 lg:col-span-2 relative overflow-hidden"
+                className="burst-btn bg-white rounded-[1.5rem] p-6 shadow-sm border border-amber-50 lg:col-span-2 relative overflow-hidden"
               >
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <h3 className="text-sm font-bold text-slate-400 mb-6 uppercase tracking-wider pl-1">날짜별 확률 추이</h3>
                 <div className="h-48 sm:h-64 w-full">
                   <ResponsiveContainer width="100%" height="100%">
@@ -252,8 +282,14 @@ const DetailPage: React.FC = () => {
                     <motion.div 
                       key={idx} 
                       whileHover={{ scale: 1.03, backgroundColor: "rgb(254,243,199)" }}
-                      className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-2xl border border-amber-100 transition-colors cursor-pointer"
+                      className="burst-btn flex items-center gap-3 bg-amber-50/50 p-4 rounded-2xl border border-amber-100 transition-colors cursor-pointer relative"
                     >
+                      <span className="burst-petal petal-1" />
+                      <span className="burst-petal petal-2" />
+                      <span className="burst-petal petal-3" />
+                      <span className="burst-petal petal-4" />
+                      <span className="burst-petal petal-5" />
+                      <span className="burst-petal petal-6" />
                       <CheckCircle2 className="text-amber-500 shrink-0" size={22} />
                       <span className="font-bold text-slate-700">{action}</span>
                     </motion.div>
@@ -270,8 +306,14 @@ const DetailPage: React.FC = () => {
             <motion.div 
               whileHover={{ scale: 1.02, y: -4 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-slate-800 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between mb-10 shadow-lg cursor-pointer relative overflow-hidden"
+              className="burst-btn bg-slate-800 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between mb-10 shadow-lg cursor-pointer relative overflow-hidden"
             >
+              <span className="burst-petal petal-1" />
+              <span className="burst-petal petal-2" />
+              <span className="burst-petal petal-3" />
+              <span className="burst-petal petal-4" />
+              <span className="burst-petal petal-5" />
+              <span className="burst-petal petal-6" />
               <motion.div 
                 variants={pulseGlow}
                 initial="initial"
@@ -295,7 +337,13 @@ const DetailPage: React.FC = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               {/* Weather Info Cards */}
-              <motion.div variants={cardHover} initial="rest" whileHover="hover" className="bg-white rounded-2xl p-5 shadow-sm flex items-center justify-start sm:justify-center lg:justify-start gap-4 border border-slate-100">
+              <motion.div variants={cardHover} initial="rest" whileHover="hover" className="burst-btn bg-white rounded-2xl p-5 shadow-sm flex items-center justify-start sm:justify-center lg:justify-start gap-4 border border-slate-100 relative">
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <div className="w-14 h-14 rounded-[1rem] bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
                   <Cloud size={28} strokeWidth={2.5} />
                 </div>
@@ -305,7 +353,13 @@ const DetailPage: React.FC = () => {
                 </div>
               </motion.div>
               
-              <motion.div variants={cardHover} initial="rest" whileHover="hover" className="bg-white rounded-2xl p-5 shadow-sm flex items-center justify-start sm:justify-center lg:justify-start gap-4 border border-slate-100">
+              <motion.div variants={cardHover} initial="rest" whileHover="hover" className="burst-btn bg-white rounded-2xl p-5 shadow-sm flex items-center justify-start sm:justify-center lg:justify-start gap-4 border border-slate-100 relative">
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <div className="w-14 h-14 rounded-[1rem] bg-rose-50 text-rose-500 flex items-center justify-center shrink-0">
                   <Thermometer size={28} strokeWidth={2.5} />
                 </div>
@@ -315,7 +369,13 @@ const DetailPage: React.FC = () => {
                 </div>
               </motion.div>
               
-              <motion.div variants={cardHover} initial="rest" whileHover="hover" className="bg-white rounded-2xl p-5 shadow-sm flex items-center justify-start sm:justify-center lg:justify-start gap-4 border border-slate-100">
+              <motion.div variants={cardHover} initial="rest" whileHover="hover" className="burst-btn bg-white rounded-2xl p-5 shadow-sm flex items-center justify-start sm:justify-center lg:justify-start gap-4 border border-slate-100 relative">
+                <span className="burst-petal petal-1" />
+                <span className="burst-petal petal-2" />
+                <span className="burst-petal petal-3" />
+                <span className="burst-petal petal-4" />
+                <span className="burst-petal petal-5" />
+                <span className="burst-petal petal-6" />
                 <div className="w-14 h-14 rounded-[1rem] bg-slate-100 text-slate-500 flex items-center justify-center shrink-0">
                   <Wind size={28} strokeWidth={2.5} />
                 </div>
@@ -334,8 +394,14 @@ const DetailPage: React.FC = () => {
                   <motion.div 
                     key={idx} 
                     whileHover={{ scale: 1.03, backgroundColor: "rgb(241,245,249)" }}
-                    className="flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100 transition-colors cursor-pointer"
+                    className="burst-btn flex items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100 transition-colors cursor-pointer relative"
                   >
+                    <span className="burst-petal petal-1" />
+                    <span className="burst-petal petal-2" />
+                    <span className="burst-petal petal-3" />
+                    <span className="burst-petal petal-4" />
+                    <span className="burst-petal petal-5" />
+                    <span className="burst-petal petal-6" />
                     <CheckCircle2 className="text-slate-400 shrink-0" size={22} />
                     <span className="font-bold text-slate-700">{action}</span>
                   </motion.div>

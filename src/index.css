@@ -9,3 +9,106 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@keyframes petal-fall {
+  0% {
+    top: -28px;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0.75;
+  }
+  25% {
+    transform: translateX(calc(var(--sway, 0px) * 0.35)) rotate(50deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateX(calc(var(--sway, 0px) * -0.35)) rotate(180deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateX(calc(var(--sway, 0px) * 0.25)) rotate(280deg);
+    opacity: 0.95;
+  }
+  100% {
+    top: calc(100% - 16px);
+    transform: translateX(var(--sway, 0px)) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.burst-btn {
+  position: relative;
+}
+
+.burst-petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at 30% 30%, #ffe8f1 0%, #ffb6d3 45%, #f57ea1 100%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85) rotate(0deg);
+  pointer-events: none;
+}
+
+.burst-btn:hover .burst-petal {
+  animation: petal-burst 0.55s ease-out forwards;
+}
+
+.burst-petal.petal-1 {
+  --burst-x: -42;
+  --burst-y: -45;
+  --burst-rot: -18deg;
+  animation-delay: 0s;
+}
+
+.burst-petal.petal-2 {
+  --burst-x: 45;
+  --burst-y: -30;
+  --burst-rot: 22deg;
+  animation-delay: 0.04s;
+}
+
+.burst-petal.petal-3 {
+  --burst-x: -27;
+  --burst-y: 30;
+  --burst-rot: -52deg;
+  animation-delay: 0.08s;
+}
+
+.burst-petal.petal-4 {
+  --burst-x: 36;
+  --burst-y: 36;
+  --burst-rot: 40deg;
+  animation-delay: 0.12s;
+}
+
+.burst-petal.petal-5 {
+  --burst-x: 0;
+  --burst-y: -54;
+  --burst-rot: 12deg;
+  animation-delay: 0.16s;
+}
+
+.burst-petal.petal-6 {
+  --burst-x: 0;
+  --burst-y: 51;
+  --burst-rot: -32deg;
+  animation-delay: 0.2s;
+}
+
+@keyframes petal-burst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.9) rotate(var(--burst-rot));
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--burst-x) * 1px - 50%), calc(var(--burst-y) * 1px - 50%)) scale(1.05)
+      rotate(calc(var(--burst-rot) + 160deg));
+  }
+}

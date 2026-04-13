@@ -74,13 +74,13 @@ const FallingPetals: React.FC = () => {
           <svg
             viewBox="0 0 80 105"
             className="block w-full h-full"
-            style={{ filter: 'drop-shadow(0 5px 14px rgba(240, 187, 213, 0.22))' }}
+            style={{ filter: 'drop-shadow(0 5px 14px rgba(255, 160, 210, 0.24))' }}
           >
             <defs>
               <radialGradient id={`petal-gradient-${petal.id}`} cx="40" cy="20" r="45" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#fff4f8" />
-                <stop offset="32%" stopColor="#ffdaea" />
-                <stop offset="100%" stopColor="#ef98c3" />
+                <stop offset="0%" stopColor="#fff0f7" />
+                <stop offset="35%" stopColor="#ffcade" />
+                <stop offset="100%" stopColor="#ff8ac8" />
               </radialGradient>
             </defs>
             <path d={petalShapes[petal.shape]} fill={`url(#petal-gradient-${petal.id})`} />

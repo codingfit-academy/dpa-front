@@ -45,7 +45,7 @@ const FallingPetals: React.FC = () => {
 
   const petalShapes = [
     'M40 10 C 58 10, 75 28, 60 62 C 56 80, 40 95, 40 95 C 40 95, 24 78, 20 60 C 5 28, 22 10, 40 10 Z',
-    // 'M40 0 C 62 12, 72 34, 58 68 C 54 87, 40 95, 40 95 C 40 95, 26 78, 22 66, 18 40 C 14 18, 22 6, 40 0 Z',
+    'M40 0 C 62 12, 72 34, 58 68 C 54 87, 40 95, 40 95 C 40 95, 26 78, 22 66, 18 40 C 14 18, 22 6, 40 0 Z',
     'M40 10 C 55 10, 68 20, 66 40 C 64 58, 57 82, 40 95 C 23 82, 16 58, 14 40 C 12 20, 25 10, 40 10 Z',
   ];
 
@@ -74,7 +74,7 @@ const FallingPetals: React.FC = () => {
           <svg
             viewBox="0 0 80 105"
             className="block w-full h-full"
-            style={{ filter: 'drop-shadow(0 5px 14px rgba(255, 160, 210, 0.24))' }}
+            style={{ filter: 'drop-shadow(0 5px 14px rgb(255, 0, 136))' }}
           >
             <defs>
               <radialGradient id={`petal-gradient-${petal.id}`} cx="40" cy="20" r="45" gradientUnits="userSpaceOnUse">

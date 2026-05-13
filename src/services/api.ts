@@ -119,7 +119,6 @@ export const dpaApi = {
         region_code: params.regionCode ?? '11',
         horizon_days: params.horizonDays ?? 1,
         mc_samples: params.mcSamples ?? 1500,
-        taein: 5
       }),
     }).then(jsonOrThrow<RiskResponse>),
 

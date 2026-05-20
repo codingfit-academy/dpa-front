@@ -121,8 +121,8 @@ const DetailPage: React.FC = () => {
     };
   }, [diseaseId, disease]);
 
-  const childPct = risk ? (risk.summary.child.probability * 100).toFixed(1) : '--';
-  const adultPct = risk ? (risk.summary.adult.probability * 100).toFixed(1) : '--';
+  const childPct = risk ? (risk.summary.child.probability * 100).toFixed(2) : '--';
+  const adultPct = risk ? (risk.summary.adult.probability * 100).toFixed(2) : '--';
 
   const childChartData = useMemo(
     () => timeseries?.points.map(p => ({ date: p.date, probability: p.child })) ?? [],
@@ -132,6 +132,22 @@ const DetailPage: React.FC = () => {
     () => timeseries?.points.map(p => ({ date: p.date, probability: p.adult })) ?? [],
     [timeseries],
   );
+
+  // 데이터 값에 맞춰 Y축 범위를 동적으로 좁히고, 위·아래 여백을 살짝 둔다.
+  const getYDomain = (data: { probability: number }[]): [number, number] => {
+    if (!data.length) return [0, 100];
+    const values = data.map(d => d.probability);
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min;
+    const padding = range === 0 ? Math.max(0.1, Math.abs(max) * 0.05) : range * 0.25;
+    const lo = Math.max(0, min - padding);
+    const hi = max + padding;
+    return [Math.floor(lo * 100) / 100, Math.ceil(hi * 100) / 100];
+  };
+
+  const childYDomain = useMemo(() => getYDomain(childChartData), [childChartData]);
+  const adultYDomain = useMemo(() => getYDomain(adultChartData), [adultChartData]);
 
   const pm10 = exposure?.windowed.pm10 ?? 0;
   const pm25 = exposure?.windowed.pm25 ?? 0;
@@ -248,13 +264,13 @@ const DetailPage: React.FC = () => {
                 <h3 className="text-sm font-bold text-slate-400 mb-6 uppercase tracking-wider pl-1">날짜별 확률 추이 (%)</h3>
                 <div className="h-48 sm:h-64 w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={childChartData} margin={{ top: 5, right: 20, bottom: 5, left: -20 }}>
+                    <LineChart data={childChartData} margin={{ top: 5, right: 20, bottom: 5, left: 15 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                       <XAxis dataKey="date" tick={{ fill: '#94a3b8', fontSize: 13, fontWeight: 600 }} tickLine={false} axisLine={false} dy={10} />
-                      <YAxis tick={{ fill: '#94a3b8', fontSize: 13, fontWeight: 600 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} dx={-10} />
+                      <YAxis tick={{ fill: '#94a3b8', fontSize: 12, fontWeight: 600 }} tickLine={false} axisLine={false} tickFormatter={(v: number) => `${v.toFixed(2)}%`} domain={childYDomain} allowDecimals width={60} />
                       <Tooltip
                         contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)', padding: '12px' }}
-                        formatter={(value: number) => [`${value}%`, '확률']}
+                        formatter={(value: number) => [`${value.toFixed(2)}%`, '확률']}
                       />
                       <Line type="monotone" dataKey="probability" stroke="#0ea5e9" strokeWidth={4} dot={{ r: 5, fill: '#fff', strokeWidth: 3, stroke: '#0ea5e9' }} activeDot={{ r: 8, fill: '#0ea5e9', stroke: '#d0f1ff', strokeWidth: 4 }} animationDuration={1200} />
                     </LineChart>
@@ -314,13 +330,13 @@ const DetailPage: React.FC = () => {
                 <h3 className="text-sm font-bold text-slate-400 mb-6 uppercase tracking-wider pl-1">날짜별 확률 추이 (%)</h3>
                 <div className="h-48 sm:h-64 w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={adultChartData} margin={{ top: 5, right: 20, bottom: 5, left: -20 }}>
+                    <LineChart data={adultChartData} margin={{ top: 5, right: 20, bottom: 5, left: 15 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
                       <XAxis dataKey="date" tick={{ fill: '#94a3b8', fontSize: 13, fontWeight: 600 }} tickLine={false} axisLine={false} dy={10} />
-                      <YAxis tick={{ fill: '#94a3b8', fontSize: 13, fontWeight: 600 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} dx={-10} />
+                      <YAxis tick={{ fill: '#94a3b8', fontSize: 12, fontWeight: 600 }} tickLine={false} axisLine={false} tickFormatter={(v: number) => `${v.toFixed(2)}%`} domain={adultYDomain} allowDecimals width={60} />
                       <Tooltip
                         contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)', padding: '12px' }}
-                        formatter={(value: number) => [`${value}%`, '확률']}
+                        formatter={(value: number) => [`${value.toFixed(2)}%`, '확률']}
                       />
                       <Line type="monotone" dataKey="probability" stroke="#f59e0b" strokeWidth={4} dot={{ r: 5, fill: '#fff', strokeWidth: 3, stroke: '#f59e0b' }} activeDot={{ r: 8, fill: '#f59e0b', stroke: '#fef3c7', strokeWidth: 4 }} animationDuration={1200} />
                     </LineChart>

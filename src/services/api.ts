@@ -2,8 +2,8 @@
 // 백엔드(FastAPI)의 /v1/* 엔드포인트와 통신.
 // 베이스 URL은 VITE_API_URL 환경변수로 주입 (없으면 localhost:8000).
 
-const API_BASE_URL: string = 'https://dpa-api.codingfit.kr'
-  // (import.meta as any).env?.VITE_API_URL?.replace(/\/$/, '') ?? 'https://dpa-api.codingfit.kr';
+const API_BASE_URL: string = 
+  (import.meta as any).env?.VITE_API_URL?.replace(/\/$/, '') ?? 'https://dpa-api.codingfit.kr';
 
 export type DiseaseId = 'covid' | 'cold' | 'flu' | 'pneumonia' | 'allergy';
 
